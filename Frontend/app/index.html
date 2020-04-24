@@ -42,12 +42,12 @@
             <ul ng-repeat="i in items | searchFor:search" ng-class="{active : isSelected(i)}">
                 <div class="SensorBox" >
                     <span style="border-style: inset;border-color: white;border-width: 2px">
-                          <p1 ><b>Sensor ID:{{i.SensorID}}</b><button ng-click="openModel(i)" class="btn btn-default" style="background-color: darkred;color: white;float: right">View Status</button></p1><br>
+                          <p1 ><b>Sensor ID:{{-1}}</b><button ng-click="openModel(i)" class="btn btn-default" style="background-color: darkred;color: white;float: right">View Status</button></p1><br>
                     </span>
                     <div style="text-align: center">
-                           <br><b><p2>Floor No:{{i.FloorNo}}</p2>
-                           <br><p3>Room No:{{i.RoomNo}}</p3></b>
-                           <p style="color: orangered">Alarm :{{i.status}}</p>
+                           <br><b><p2>Floor No:{{i.floorNo}}</p2>
+                           <br><p3>Room No:{{i.roomNo}}</p3></b>
+                           <p style="color: orangered">Alarm :{{getStatusFromResponseEnum(i.status)}}</p>
                     </div>
                        <div style="color: red" ng-click="openRisk()" >{{getAlert(i)}}</div>
                 </div>

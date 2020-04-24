@@ -33,15 +33,17 @@ public class SensorController {
 	}
 	
 	@RequestMapping("/update")
-	public String update(@RequestParam int floorNo, @RequestParam int roomNo,@RequestParam int smoke, @RequestParam int CO2,@RequestParam int Status) {
+	public String update(@RequestParam int floorNo, @RequestParam int roomNo,@RequestParam int smoke, @RequestParam int CO2, @RequestParam int Status) {
 		Sensor s = sensorService.create(floorNo, roomNo, smoke, CO2,Status);
 		return s.toString();
 	}
+
 	@RequestMapping("/delete")
 	public String delete(int floorNo,int roomNo) {
 		sensorService.delete(floorNo,roomNo);
 		return "Deleted floor "+floorNo+" room "+roomNo+" sensor. ";
 	}
+
 	@RequestMapping("/deleteAll")
 	public String deleteAll() {
 		sensorService.deleteAll();
