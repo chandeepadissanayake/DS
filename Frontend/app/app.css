@@ -1,0 +1,84 @@
+/* app css stylesheet */
+input.SensorID{
+   margin-left: 30px;
+}
+
+div.SensorBox{
+    border-style: outset;
+    border-color: white;
+    border-width: 3px;
+    background-color: black;
+    margin-left: 200px;
+    margin-right: 200px;
+    color: white;
+    font-size: 20px;
+
+
+}
+h2{
+    padding-left: 100px;
+    font-size: 2%;
+    font-family: "Calibri Light";
+    color: white;
+
+}
+div.BoxArrangements{
+    padding-top: 2%;
+    border: 2px solid white;
+    box-sizing: border-box;
+    margin-right:100px ;
+    margin-left: 100px;
+
+
+
+
+
+
+}
+div.row {
+    background-color: black;
+    margin-right: 2px;
+    padding-bottom: 20px;
+}
+
+button{
+    background-color: darkred;
+    color: white;
+    padding-right: 50px;
+}
+p{
+
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+div.box{
+    border-style: solid;
+    border-color: black;
+    background-color:darkred;
+}
+
+.modal-background {
+    z-index:10000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:white;
+
+}
+.modal-content {
+
+    text-align: center;
+    color: orangered;
+}
+.modal-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px;
+    cursor: pointer;
+
+}
+
+

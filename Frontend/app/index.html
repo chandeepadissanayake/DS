@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fire Sensor Alarm</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body ng-app="SensorApp" ng-controller="MainController">
+
+    <div class="box" >
+        <img src="fireman.png" style="width: 15%;height:12%;margin-bottom: -13%;margin-left: 20%"/>
+             <h1 style="text-align: center;color: white;">Fire-Sensor-Alarm!</h1>
+             <br><p>Your Safety is our First Priority<p style="text-align: right;">
+        <img class="png-icon" src="call1.jpg" style="width: 30px; height: 30px" >Contact Us-011-2972929</p></p>
+    </div>
+
+    <div class="row">
+        <input  type="text" class=" SensorID"  ng-model="search" placeholder="Enter your Sensor ID" />
+        <mg-button><img class="png-icon" src="search.png" style="width: 30px; height: 30px" ></mg-button>
+    </div>
+
+
+<div class="Alarms" style="background-color: black; background-image: url('fire3.jpg');background-repeat: no-repeat;background-size: contain" ng-controller="AlarmController">
+        <div class="BoxArrangements">
+                <h2 >Sensor Alarms</h2>
+            <ul ng-repeat="i in items | searchFor:search" ng-class="{active : isSelected(i)}">
+                <div class="SensorBox" >
+                    <span style="border-style: inset;border-color: white;border-width: 2px">
+                          <p1 ><b>Sensor ID:{{i.SensorID}}</b><button ng-click="openModel(i)" class="btn btn-default" style="background-color: darkred;color: white;float: right">View Status</button></p1><br>
+                    </span>
+                    <div style="text-align: center">
+                           <br><b><p2>Floor No:{{i.FloorNo}}</p2>
+                           <br><p3>Room No:{{i.RoomNo}}</p3></b>
+                           <p style="color: orangered">Alarm :{{i.status}}</p>
+                    </div>
+                       <div style="color: red" ng-click="openRisk()" >{{getAlert(i)}}</div>
+                </div>
+            </ul>
+        </div>
+    <div style="font-family: Calibri,serif"><Strong>
+        <modal  show="modalShown" width='400px' height='60%' >
+            <h4 style="background-color: black;border: black;padding-bottom: 5%">Alarm Status<br>Readings of Room No :{{Roomno}}</h4><br>
+
+                <p style="color: black;text-align: left" >CO2 Level  :{{selected | json}}  </p><br>
+                <p style="color: black;text-align: left">Smoke Level : {{selected2 |json}}  </p><br>
+            <h5 style="text-align: left">Room Condition :{{Alert}}</h5><br><br>
+
+        </modal></Strong>
+    </div>
+</div>
+
+
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+<!--Following codes is used to import the app and controller-->
+<script src="app.js"></script>
+<script src="MainController.js"></script>
+
+<script src="core/version/version.js"></script>
+<script src="core/version/version-directive.js"></script>
+<script src="core/version/interpolate-filter.js"></script>
+<script src="controllers/ModalController.js"></script>
+<script src="Directives/modal.directive.js"></script>
+</body>
+</html>
